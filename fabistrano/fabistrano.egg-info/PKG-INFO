@@ -1,0 +1,19 @@
+Metadata-Version: 1.0
+Name: fabistrano
+Version: 0.2
+Summary: Capistrano style deployments with Fabric
+Home-page: http://github.com/dlapiduz/fabistrano
+Author: Diego Lapiduz
+Author-email: diego@lapiduz.com
+License: License :: OSI Approved :: BSD License
+Download-URL: https://github.com/dlapiduz/fabistrano/tarball/0.2
+Description: UNKNOWN
+Keywords: fabric,dlapiduz,capistrano
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities

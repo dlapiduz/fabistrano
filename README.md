@@ -34,9 +34,12 @@ Using fabistrano you get the following benefits:
 
 ` pip install fabistrano `
 
-2. In your `fabfile.py` you need to `import fabistrano` and set the following variables:
+2. In your `fabfile.py` you need to import fabistrano and set the environment variables:
 
   ```
+    from fabistrano import deploy
+
+    
     env.hosts = ["HOST"] # Replace with your host name or IP
     env.base_dir = '/www' # Set to your apps directory
     env.app_name = 'app_name.com' # This will deploy the app to /www/app_name.com/

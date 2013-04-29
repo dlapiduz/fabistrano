@@ -3,7 +3,8 @@ from fabric.api import run, env
 
 
 def dir_exists(dir):
-    return run('[ -d %s ] && echo 1 || echo 0' % dir) == '1'
+    # return run('[ -d %s ] && echo 1 || echo 0' % dir) == '1'
+    pass
 
 def with_defaults(func):
     """A decorator that sets all defaults for a task."""
