@@ -6,6 +6,12 @@ VERSION = "0.2"
 
 env.timeout = 6000
 
+def sudo_run(*args, **kwargs):
+    if env.use_sudo:
+        sudo(*args, **kwargs)
+    else:
+        run(*args, **kwargs)
+
 @task
 @with_defaults
 def restart():
@@ -16,25 +22,25 @@ def restart():
                   'wsgi_path': env.wsgi_path })
     except AttributeError:
         try:
-            sudo(env.restart_cmd)
+            sudo_run(env.restart_cmd)
         except AttributeError:
             pass
 
 @with_defaults
 def permissions():
     """Make the release group-writable"""
-    sudo("chown -R %(user)s:%(group)s %(domain_path)s" % 
+    sudo_run("chown -R %(user)s:%(group)s %(domain_path)s" % 
             { 'domain_path':env.domain_path,
               'user': env.remote_owner,
               'group': env.remote_group })
-    sudo("chmod -R g+w %(domain_path)s" % { 'domain_path':env.domain_path })
+    sudo_run("chmod -R g+w %(domain_path)s" % { 'domain_path':env.domain_path })
 
 @task
 @with_defaults
 def setup():
     """Prepares one or more servers for deployment"""
-    sudo("mkdir -p %(domain_path)s/{releases,shared}" % { 'domain_path':env.domain_path })
-    sudo("mkdir -p %(shared_path)s/{system,log}" % { 'shared_path':env.shared_path })
+    sudo_run("mkdir -p %(domain_path)s/{releases,shared}" % { 'domain_path':env.domain_path })
+    sudo_run("mkdir -p %(shared_path)s/{system,log}" % { 'shared_path':env.shared_path })
     permissions()
 
 @with_defaults
@@ -76,7 +82,7 @@ def set_current():
 @with_defaults
 def update_env():
     """Update servers environment on the remote servers"""
-    sudo("cd %(current_release)s; pip install -r requirements.txt" % { 'current_release':env.current_release })
+    sudo_run("cd %(current_release)s; pip install -r requirements.txt" % { 'current_release':env.current_release })
     permissions()
 
 @task 
