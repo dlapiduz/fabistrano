@@ -11,6 +11,7 @@ def with_defaults(func):
 
     @functools.wraps(func)
     def decorated(*args, **kwargs):
+        env.setdefault('use_sudo', True)
         env.setdefault('git_branch', 'master')
         env.setdefault('python_bin', 'python')
         env.setdefault('remote_owner', 'www-data')
