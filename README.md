@@ -3,7 +3,7 @@ fabistrano
 
 Fabistrano is a set of [Fabric](http://docs.fabfile.org/en/1.6/) tasks that allows you to do [Capistrano](https://github.com/capistrano/capistrano) style deployments for python web apps.
 
-## What is a _capistrano style_ deployments?
+## What is a _capistrano style_ deployment?
 
 Capistrano deploys code under versioned directories and then symlinks the latest one as the *current* release.
 
@@ -20,7 +20,7 @@ A sample structure would look like this:
     | - current
   ```
 
-## Why use this stlye of deployment?
+## Why use this style of deployment?
 
 Using fabistrano you get the following benefits:
 
@@ -41,7 +41,7 @@ Using fabistrano you get the following benefits:
 
     
     env.hosts = ["HOST"] # Replace with your host name or IP
-    env.base_dir = '/www' # Set to your apps directory
+    env.base_dir = '/www' # Set to your app's directory
     env.app_name = 'app_name.com' # This will deploy the app to /www/app_name.com/
     env.git_clone = 'GIT_PATH' # Your git url
 
