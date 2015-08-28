@@ -1,9 +1,0 @@
-setup.py
-fabistrano/__init__.py
-fabistrano/deploy.py
-fabistrano/helpers.py
-fabistrano.egg-info/PKG-INFO
-fabistrano.egg-info/SOURCES.txt
-fabistrano.egg-info/dependency_links.txt
-fabistrano.egg-info/not-zip-safe
-fabistrano.egg-info/top_level.txt
