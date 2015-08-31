@@ -12,6 +12,10 @@
 - Remove committed `.pyc` files and add `*.pyc` to `.gitignore`.
 - Typos in `README.md`.
 
+### Removed
+
+- Unused `VERSION` variable in `fabistrano.deploy`.
+
 
 ## 0.3 - 2013-04-29
 
