@@ -10,6 +10,7 @@
 ### Fixed
 
 - Remove committed `.pyc` files and add `*.pyc` to `.gitignore`.
+- Remove committed distribution packages.
 - Typos in `README.md`.
 
 
