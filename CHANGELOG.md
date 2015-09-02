@@ -13,6 +13,10 @@
 - Remove committed distribution packages.
 - Typos in `README.md`.
 
+### Removed
+
+- Unused `VERSION` variable in `fabistrano.deploy`.
+
 
 ## 0.3 - 2013-04-29
 
