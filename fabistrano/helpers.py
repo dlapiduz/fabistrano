@@ -16,6 +16,7 @@ def with_defaults(func):
         env.setdefault('python_bin', 'python')
         env.setdefault('remote_owner', 'www-data')
         env.setdefault('remote_group', 'www-data')
+        env.setdefault('pip_install_command', 'pip install -r requirements.txt')
 
 
         env.setdefault('domain_path', "%(base_dir)s/%(app_name)s" % \
@@ -34,12 +35,12 @@ def with_defaults(func):
                 if len(env.releases) >= 1:
                     env.current_revision = env.releases[-1]
                     env.current_release = "%(releases_path)s/%(current_revision)s" % \
-                                                { 'releases_path':env.releases_path, 
+                                                { 'releases_path':env.releases_path,
                                                   'current_revision':env.current_revision }
                 if len(env.releases) > 1:
                     env.previous_revision = env.releases[-2]
                     env.previous_release = "%(releases_path)s/%(previous_revision)s" % \
-                                                { 'releases_path':env.releases_path, 
+                                                { 'releases_path':env.releases_path,
                                                   'previous_revision':env.previous_revision }
         return func(*args, **kwargs)
     return decorated
