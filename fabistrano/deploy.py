@@ -27,7 +27,7 @@ def restart():
 @with_defaults
 def permissions():
     """Make the release group-writable"""
-    sudo_run("chown -R %(user)s:%(group)s %(domain_path)s" % 
+    sudo_run("chown -R %(user)s:%(group)s %(domain_path)s" %
             { 'domain_path':env.domain_path,
               'user': env.remote_owner,
               'group': env.remote_group })
@@ -80,10 +80,10 @@ def set_current():
 @with_defaults
 def update_env():
     """Update servers environment on the remote servers"""
-    sudo_run("cd %(current_release)s; pip install -r requirements.txt" % { 'current_release':env.current_release })
+    sudo_run("cd %(current_release)s; %(pip_install_command)s" % { 'current_release':env.current_release, 'pip_install_command':env.pip_install_command })
     permissions()
 
-@task 
+@task
 @with_defaults
 def cleanup():
     """Clean up old releases"""
